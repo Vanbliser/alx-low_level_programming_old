@@ -1,0 +1,10 @@
+#!/bin/bash
+echo -e "Command is - $1\nFile name is - $2\nCommit message is - Added $file"
+cmd=$1
+file=$2
+echo '#!/bin/bash' > $file
+echo "$cmd" >> $file
+chmod u+x $file
+git add .
+git commit -m "Added $file"
+git push
