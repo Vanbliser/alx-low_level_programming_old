@@ -8,6 +8,7 @@
  * (every other function (printf, puts, etc…) is forbidden)
  * All your code should be in the main function
  * You can only use putchar twice in your code
+ * Return: returns int 0 on successful completion
  */
 int main(void)
 {
