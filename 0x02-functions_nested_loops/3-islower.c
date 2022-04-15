@@ -5,7 +5,7 @@
  * from 97 to 122
  * @c: The char variable to check in int.
  *
- * Return: return int 1 if true, else int 0. 
+ * Return: return int 1 if true, else int 0.
  */
 int _islower(int c)
 {
