@@ -1,4 +1,5 @@
 #include <stdio.h>
+void change_state(int bool, int *th, int *_xx);
 
 /**
  * main - Write a program that prints all possible combinations
@@ -17,7 +18,6 @@
  * All your code should be in the main function
  * Return: Return int 0 on successful completion
  */
-
 int main(void)
 {
 	int i;
@@ -47,28 +47,13 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-				if ((k >= 57) && (l >= 57) && (_99 <= 57))
-				{
-					lth = ++_99;
-				}
-				else
-				{
-					lth = 48;
-					if (_99 > 57)
-						_99 = 48;
-				}
+				int bool = (k >= 57) && (l >= 57) && (_99 <= 57);
+				change_state(bool, &lth, &_99);
 				if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 					break;
 			}
-			if ((j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57))
-			{
-				kth = ++_999;
-			}
-			else
-			{
-				if (_999 > 57)
-					_999 = 48;
-			}
+			int bool = (j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57);
+			change_state(bool, &kth, &_999);
 			if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 				break;
 		}
@@ -77,4 +62,18 @@ int main(void)
 	}
 	putchar('\n');
 	return (0);
+}
+
+void change_state(int bool, int *th, int *_xx)
+{
+	if (bool == 1)
+	{
+		*th = *_xx;
+	}
+	else
+	{
+		*th = 48;
+		if (*_xx > 57)
+			*_xx = 48;
+	}
 }
