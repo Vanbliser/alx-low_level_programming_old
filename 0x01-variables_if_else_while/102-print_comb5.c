@@ -71,9 +71,9 @@ int main(void)
  * change_state - a function that sets the th value and the _xx
  * in the calling function
  * @bool: the bolean value of a boolean expression
- * @th: the pointer to the th value in the calling function  
+ * @th: the pointer to the th value in the calling function
  * @_xx: the pointer to the _xx value in the calling function
- * @is_th: checks if the function is setting lth or kth
+ * @is_lth: checks if the function is setting lth or kth
  *
  * Return: return void
  */
