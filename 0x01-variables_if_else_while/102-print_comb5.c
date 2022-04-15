@@ -28,6 +28,7 @@ int main(void)
 	int _999 = 48;
 	int lth = 49;
 	int kth = 48;
+	int bool;
 
 	for (i = 48; i <= 57; ++i)
 	{
@@ -47,12 +48,12 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-				int bool = (k >= 57) && (l >= 57) && (_99 <= 57);
+				bool = (k >= 57) && (l >= 57) && (_99 <= 57);
 				change_state(bool, &lth, &_99);
 				if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 					break;
 			}
-			int bool = (j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57);
+			bool = (j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57);
 			change_state(bool, &kth, &_999);
 			if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 				break;
