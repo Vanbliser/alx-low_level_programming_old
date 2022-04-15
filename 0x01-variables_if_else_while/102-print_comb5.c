@@ -1,5 +1,5 @@
 #include <stdio.h>
-void change_state(int bool, int *th, int *_xx);
+void change_state(int, int *th, int *_xx, int);
 
 /**
  * main - Write a program that prints all possible combinations
@@ -28,7 +28,9 @@ int main(void)
 	int _999 = 48;
 	int lth = 49;
 	int kth = 48;
-	int bool;
+	int boolean;
+	int is_lth = 1;
+	int is_not_lth = 0;
 
 	for (i = 48; i <= 57; ++i)
 	{
@@ -48,13 +50,13 @@ int main(void)
 					putchar(',');
 					putchar(' ');
 				}
-				bool = (k >= 57) && (l >= 57) && (_99 <= 57);
-				change_state(bool, &lth, &_99);
+				boolean = (k >= 57) && (l >= 57) && (_99 <= 57);
+				change_state(boolean, &lth, &_99, is_lth);
 				if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 					break;
 			}
-			bool = (j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57);
-			change_state(bool, &kth, &_999);
+			boolean = (j >= 57) && (k >= 57) && (l >= 57) && (_999 <= 57);
+			change_state(boolean, &kth, &_999, is_not_lth);
 			if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
 				break;
 		}
@@ -65,15 +67,26 @@ int main(void)
 	return (0);
 }
 
-void change_state(int bool, int *th, int *_xx)
+/**
+ * change_state - a function that sets the th value and the _xx
+ * in the calling function
+ * @bool: the bolean value of a boolean expression
+ * @th: the pointer to the th value in the calling function  
+ * @_xx: the pointer to the _xx value in the calling function
+ * @is_th: checks if the function is setting lth or kth
+ *
+ * Return: return void
+ */
+void change_state(int bool, int *th, int *_xx, int is_lth)
 {
 	if (bool == 1)
 	{
-		*th = *_xx;
+		*th = ++*_xx;
 	}
 	else
 	{
-		*th = 48;
+		if (is_lth)
+			*th = 48;
 		if (*_xx > 57)
 			*_xx = 48;
 	}
