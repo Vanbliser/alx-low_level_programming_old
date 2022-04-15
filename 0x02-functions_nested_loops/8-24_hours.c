@@ -6,7 +6,7 @@
  */
 void jack_bauer(void)
 {
-	char a,b,c,d;
+	char a, b, c, d;
 
 	for (a = '0'; a <= '2'; ++a)
 	{
@@ -24,7 +24,6 @@ void jack_bauer(void)
 					_putchar('\n');
 					if ((a == '2') && (b == '3') && (c == '5') && (d == '9'))
 						break;
-					
 				}
 				if ((a == '2') && (b == '3') && (c == '5') && (d == '9'))
 					break;
