@@ -26,7 +26,7 @@ int main(void)
 	}
 	count = no_of_digit(sum);
 	print_digits(sum, count);
-	_putchar('\n')
+	_putchar('\n');
 	return (0);
 }
 
