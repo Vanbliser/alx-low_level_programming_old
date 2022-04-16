@@ -9,10 +9,10 @@
 int main(void)
 {
 	int i = 1;
-	long int c = 1;
-	long int a = 1;
-	long int b = 1;
-	long long int sum = 0;
+	int c = 1;
+	int a = 1;
+	int b = 1;
+	long int sum = 0;
 	int count;
 
 	while (c <= 4000000)
