@@ -77,7 +77,7 @@ int first_digit(int i)
 	a = (long int)(i);
 	if (a >= 10)
 	{
-		do{
+		do {
 			a = a / 10;
 		} while (a >= 10);
 		return ((int)(a));
@@ -96,7 +96,7 @@ int first_digit(int i)
 int second_digit(int i)
 {
 	long int a;
-	
+
 	a = (long int)(i);
 	a = a % 10;
 	return ((int)(a));
