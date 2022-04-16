@@ -18,6 +18,6 @@ int main(void)
 		if ((i % 3 == 0) || (i % 5 == 0))
 			add += i;
 	}
-	printf("%d", add);
+	printf("%d\n", add);
 	return (0);
 }
