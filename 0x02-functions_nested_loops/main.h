@@ -17,5 +17,8 @@ int first_digit(int i);
 int second_digit(int i);
 int add(int, int);
 void print_to_98(int n);
+void print_times_table(int n);
+int no_of_digit(int i);
+void print_digits(int n, int num);
 
 #endif /* MAIN */
