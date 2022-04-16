@@ -54,7 +54,7 @@ int no_of_digit(int i)
  */
 void print_digits(int d, int n)
 {
-	int digits[];
+	int digits[32];
 	int tmp = d;
 	int i;
 
