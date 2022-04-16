@@ -15,5 +15,6 @@ int is_single(int i);
 void comma_space(int i);
 int first_digit(int i);
 int second_digit(int i);
+int add(int, int);
 
 #endif /* MAIN */
