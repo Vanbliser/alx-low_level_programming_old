@@ -7,7 +7,7 @@
  *
  * Description: You are allowed to use the standard library
  * You are not allowed to use any other library (You can’t use GMP etc…)
- * You are not allowed to use long long, malloc, pointers, arrays/tables, 
+ * You are not allowed to use long long, malloc, pointers, arrays/tables,
  * or structures
  * You are not allowed to hard code any Fibonacci number (except for 1 and 2)
  * Return: return 0 on success
@@ -16,9 +16,9 @@ int main(void)
 {
 	int i;
 	long double number;
+
 	long double a = 0;
 	long double b = 1;
-
 	for (i = 1; i <= 98; ++i)
 	{
 		number = a + b;
@@ -37,7 +37,8 @@ int main(void)
 /**
  * print_digits - a function that prints the digits of a number
  * @d: the number
- * @n: the number of the digits in the number
+ *
+ * Description: a function that prints the digits of a number
  */
 void print_number(long double d)
 {
@@ -59,8 +60,9 @@ void print_number(long double d)
 
 /**
  * no_of_digit - Return the number of digits in a number i
- *
  * @i: the number i
+ *
+ * Description: return the number of digits
  * Return: return the number of digits as int
  */
 int num_of_digit(long double i)
