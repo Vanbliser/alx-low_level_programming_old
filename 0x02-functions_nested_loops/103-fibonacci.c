@@ -26,7 +26,6 @@ int main(void)
 	}
 	count = no_of_digit(sum);
 	print_digits(sum, count);
-	_putchar('\n');
 	return (0);
 }
 
@@ -68,4 +67,5 @@ void print_digits(int d, int n)
 	{
 		_putchar('0' + digits[i]);
 	}
+	_putchar('\n');
 }
