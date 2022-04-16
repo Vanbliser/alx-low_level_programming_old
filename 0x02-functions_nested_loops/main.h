@@ -20,5 +20,7 @@ void print_to_98(int n);
 void print_times_table(int n);
 int no_of_digit(int i);
 void print_digits(int n, int num);
+void print_number(long double d);
+int num_of_digit(long double i);
 
 #endif /* MAIN */
