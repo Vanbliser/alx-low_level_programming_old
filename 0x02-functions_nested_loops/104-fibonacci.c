@@ -15,10 +15,10 @@ int main(void)
 {
 	int start;
 	unsigned long number;
+
 	int end = 98;
 	unsigned long a = 0;
 	unsigned long b = 1;
-
 	for (start = 1; start <= end; ++start)
 	{
 		number = a + b;
@@ -130,8 +130,8 @@ int print_number(unsigned long number)
 	int i, j, no;
 	int k = 0;
 	unsigned long a;
-	tmp = number;
 
+	tmp = number;
 	do {
 		++k;
 		i = 0;
@@ -177,8 +177,8 @@ int power(int a, int b)
 
 /**
  * no_of_dig - Return the number of digits in a number i
- *
  * @i: the number i
+ *
  * Return: return the number of digits as int
  */
 int no_of_dig(unsigned long i)
