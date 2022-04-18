@@ -72,7 +72,7 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 	j2 = j / div;
 	j3 = j - (j2 * div);
 	ans1 = 0;
-	while (start <= end)
+	for (; start <= end; ++start)
 	{
 		_i = i3;
 		_j = j3;
@@ -112,7 +112,6 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 		j1 = ans1;
 		j2 = ans2;
 		j3 = ans3;
-		++start;
 	}
 	return (start);
 }
