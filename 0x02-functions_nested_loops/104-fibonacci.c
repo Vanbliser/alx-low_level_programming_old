@@ -61,7 +61,7 @@ int main(void)
 int long_int_split(unsigned long i, unsigned long j, int end, int start)
 {
 	unsigned long i1, i2, i3, j1, j2, j3, ans1, ans2, ans3, _ans, _i, _j, p;
-	int div = 10000000;
+	int div = 100000000;
 	int rem = 0;
 	int count, tmp, zero;
 
@@ -95,7 +95,7 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 			p = (count == 1) ? ans2 : ans3;
 			if (!((count == 1) && (ans1 == 0)))
 			{
-				if ((p < 1000000) && (p != 0))
+				if ((p < 10000000) && (p != 0))
 					for (tmp = no_of_dig(p); (tmp < 6) && (ans1 != 0); ++tmp)
 						_putchar('0');
 				if (p == 0)
