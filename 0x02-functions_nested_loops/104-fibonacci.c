@@ -63,7 +63,9 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 	unsigned long i1, i2, i3, j1, j2, j3, ans1, ans2, ans3, _ans, _i, _j, p;
 	int div = 100000000;
 	int rem = 0;
-	int count, tmp, zero;
+	int count = 0;
+	int tmp = 0;
+	int zero = 0;
 
 	i1 = 0;
 	i2 = i / div;
@@ -72,6 +74,25 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 	j2 = j / div;
 	j3 = j - (j2 * div);
 	ans1 = 0;
+	ans2 = 0;
+	ans3 = 0;
+
+	_ans = 0;
+	_i = 0;
+	_j = 0;
+	p = 0;
+
+	start = get_numbers(i1, i2, i3, j1, j2, j3, ans1, ans2, ans3, _ans,
+	 _i, _j, p, div, rem, count, tmp, zero, end, start);
+	return (start);
+}
+
+int get_numbers(unsigned long i1, unsigned long i2, unsigned long i3,
+unsigned long j1, unsigned long j2, unsigned long j3, unsigned long ans1,
+unsigned long ans2, unsigned long ans3, unsigned long _ans, unsigned long _i,
+unsigned long _j, unsigned long p, int div, int rem, int count, int tmp,
+int zero, int end, int start)
+{
 	for (; start <= end; ++start)
 	{
 		_i = i3;
@@ -88,23 +109,20 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 			_i = (count == 2) ? i1 : _i;
 			_j = (count == 2) ? j1 : _j;
 			ans1 = (count == 3) ? _ans : ans1;
-		}
-		(ans1 > 0) ? print_number(ans1) : 0;
+		} (ans1 > 0) ? print_number(ans1) : 0;
 		for (count = 1; count <= 2; ++count)
 		{
 			p = (count == 1) ? ans2 : ans3;
 			if (((count == 1) && (ans1 != 0)) || (count == 2))
 			{
 				if (p > 0 && p < 10000000)
-					for (tmp = no_of_dig(p); tmp < 8; ++tmp)
+					for (tmp = power_num_dig(p, 0, 0, 2); tmp < 8; ++tmp)
 						_putchar('0');
 				if (p == 0)
 					for (zero = 1; zero <= 5; ++zero)
 						_putchar('0');
-			}
-			print_number(p);
-		}
-		(start != end) ? _putchar(',') : 0;
+			} print_number(p);
+		} (start != end) ? _putchar(',') : 0;
 		(start != end) ? _putchar(' ') : 0;
 		i1 = j1;
 		i2 = j2;
@@ -112,8 +130,7 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 		j1 = ans1;
 		j2 = ans2;
 		j3 = ans3;
-	}
-	return (start);
+	} return (start);
 }
 
 /**
@@ -145,9 +162,9 @@ int print_number(unsigned long number)
 		if (k == 1)
 			j = i;
 		_putchar('0' + (int)(tmp));
-		a = tmp * power(10, i);
+		a = tmp * power_num_dig(0, 10, i, 1);
 		tmp = number - a;
-		no = no_of_dig(tmp);
+		no = power_num_dig(tmp, 0, 0, 2);
 		while (!((j == no) || (j + 1 == no)))
 		{
 			_putchar('0');
@@ -157,40 +174,34 @@ int print_number(unsigned long number)
 	} while (j-- > 0);
 	return (0);
 }
+
 /**
- * power - a function that find the value of base a
- * exponent b
+ * power_num_dig - a function that find the value of base a
+ * exponent b and the number of digits in a number i
+ * @i: the number i
  * @a: base
  * @b: exponent
+ * @bool: determine what to return - number of digits or power
  *
- * Return: return the value of base a, exponent b
+ * Return: return the number of digits or the power as int
  */
-int power(int a, int b)
+int power_num_dig(unsigned long i, int a, int b, int bool)
 {
-	int i;
-	int ans = 1;
-
-	for (i = 1; i <= b; ++i)
+	if (bool == 2)
 	{
-		ans = ans * a;
+		int cnt = 1;
+
+		for (cnt = 1; i >= 10; ++cnt)
+			i /= 10;
+		return (cnt);
 	}
-	return (ans);
-}
-
-/**
- * no_of_dig - Return the number of digits in a number i
- * @i: the number i
- *
- * Return: return the number of digits as int
- */
-int no_of_dig(unsigned long i)
-{
-	int a = 1;
-
-	while (i >= 10)
+	else
 	{
-		i /= 10;
-		++a;
+		int cnt;
+		int ans = 1;
+
+		for (cnt = 1; cnt <= b; ++cnt)
+			ans = ans * a;
+		return (ans);
 	}
-	return (a);
 }
