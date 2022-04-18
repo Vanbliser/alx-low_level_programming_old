@@ -20,7 +20,9 @@ void print_to_98(int n);
 void print_times_table(int n);
 int no_of_digit(int i);
 void print_digits(int n, int num);
-void print_number(long double d);
-int num_of_digit(long double i);
+int print_number(unsigned long d);
+int power(int a, int b);
+int no_of_dig(unsigned long i);
+int long_int_split(unsigned long i, unsigned long j, int end, int start);
 
 #endif /* MAIN */
