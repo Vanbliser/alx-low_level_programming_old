@@ -93,10 +93,10 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 		for (count = 1; count <= 2; ++count)
 		{
 			p = (count == 1) ? ans2 : ans3;
-			if (!((count == 1) && (ans1 == 0)))
+			if (((count == 1) && (ans1 != 0)) || (count == 2))
 			{
-				if ((p < 10000000) && (p != 0))
-					for (tmp = no_of_dig(p); (tmp < 6) && (ans1 != 0); ++tmp)
+				if (p > 0 && p < 10000000)
+					for (tmp = no_of_dig(p); tmp < 8; ++tmp)
 						_putchar('0');
 				if (p == 0)
 					for (zero = 1; zero <= 5; ++zero)
