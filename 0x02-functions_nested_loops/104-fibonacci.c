@@ -15,10 +15,10 @@ int main(void)
 {
 	int start;
 	unsigned long number;
-
 	int end = 98;
 	unsigned long a = 0;
 	unsigned long b = 1;
+
 	for (start = 1; start <= end; ++start)
 	{
 		number = a + b;
@@ -51,9 +51,12 @@ int main(void)
  * and splits them into 9digits each for effective computation
  * @i: the first long integer.
  * @j: the second long integer.
+ * @end: the last number of the series
+ * @start: the first number of the series
  *
  * Description: This is a function that takes care of integer addition and
  * printing, of integers that are up to 18digits.
+ * Return: return 0 on success.
  */
 int long_int_split(unsigned long i, unsigned long j, int end, int start)
 {
@@ -77,32 +80,32 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 		{
 			_ans = _i + _j + rem;
 			rem = _ans / div;
-			_ans = ((rem > 0) && (count != 3))? _ans - (rem * div): _ans;
-			ans3 = (count == 1)? _ans: ans3;
-			_i = (count == 1)? i2: _i;
-			_j = (count == 1)? j2: _j;
-			ans2 = (count == 2)? _ans: ans2;
-			_i = (count == 2)? i1: _i;
-			_j = (count == 2)? j1: _j;
-			ans1 = (count == 3)? _ans: ans1;
+			_ans = ((rem > 0) && (count != 3)) ? _ans - (rem * div) : _ans;
+			ans3 = (count == 1) ? _ans : ans3;
+			_i = (count == 1) ? i2 : _i;
+			_j = (count == 1) ? j2 : _j;
+			ans2 = (count == 2) ? _ans : ans2;
+			_i = (count == 2) ? i1 : _i;
+			_j = (count == 2) ? j1 : _j;
+			ans1 = (count == 3) ? _ans : ans1;
 		}
-		(ans1 > 0)? print_number(ans1): 0;
+		(ans1 > 0) ? print_number(ans1) : 0;
 		for (count = 1; count <= 2; ++count)
 		{
-			p = (count == 1)? ans2: ans3;
+			p = (count == 1) ? ans2 : ans3;
 			if (!((count == 1) && (ans1 == 0)))
 			{
 				if ((p < 100000) && (p != 0))
 					for (tmp = no_of_dig(p); (tmp < 6) && (ans1 != 0); ++tmp)
 						_putchar('0');
-				if(p == 0)
+				if ( p == 0)
 					for (zero = 1; zero <= 5; ++zero)
 						_putchar('0');
 			}
 			print_number(p);
 		}
-		(start != end)? _putchar(','):0;
-		(start != end)? _putchar(' '):0;
+		(start != end) ? _putchar(',') : 0;
+		(start != end)? _putchar(' ') : 0;
 		i1 = j1;
 		i2 = j2;
 		i3 = j3;
@@ -116,7 +119,7 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 
 /**
  * print_digits - a function that prints the digits of a number
- * @d: the number
+ * @number: the number
  *
  * Description: a function that prints the digits of a number
  * by receiving the number as an unsigned long int breaking it
