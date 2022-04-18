@@ -98,14 +98,14 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 				if ((p < 100000) && (p != 0))
 					for (tmp = no_of_dig(p); (tmp < 6) && (ans1 != 0); ++tmp)
 						_putchar('0');
-				if ( p == 0)
+				if (p == 0)
 					for (zero = 1; zero <= 5; ++zero)
 						_putchar('0');
 			}
 			print_number(p);
 		}
 		(start != end) ? _putchar(',') : 0;
-		(start != end)? _putchar(' ') : 0;
+		(start != end) ? _putchar(' ') : 0;
 		i1 = j1;
 		i2 = j2;
 		i3 = j3;
@@ -118,7 +118,7 @@ int long_int_split(unsigned long i, unsigned long j, int end, int start)
 }
 
 /**
- * print_digits - a function that prints the digits of a number
+ * print_number - a function that prints the digits of a number
  * @number: the number
  *
  * Description: a function that prints the digits of a number
@@ -138,7 +138,7 @@ int print_number(unsigned long number)
 	do {
 		++k;
 		i = 0;
-		while(tmp >= ten)
+		while (tmp >= ten)
 		{
 			++i;
 			tmp /= ten;
@@ -164,7 +164,7 @@ int print_number(unsigned long number)
  * @a: base
  * @b: exponent
  *
- * Return: return the value of base a, exponent b 
+ * Return: return the value of base a, exponent b
  */
 int power(int a, int b)
 {
@@ -175,7 +175,7 @@ int power(int a, int b)
 	{
 		ans = ans * a;
 	}
-	return ans;
+	return (ans);
 }
 
 /**
