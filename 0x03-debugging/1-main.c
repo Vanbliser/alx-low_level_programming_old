@@ -1,10 +1,12 @@
 #include <stdio.h>
 
 /**
-* main - causes an infinite loop
-* Return: 0
-*/
-
+ * main - causes an infinite loop
+ *
+ * Description: A function that Return 
+ * that is causing the output to go into an infinite loop.
+ * Return: 'o' on success
+ */
 int main(void)
 {
         int i;
