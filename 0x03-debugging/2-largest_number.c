@@ -5,6 +5,9 @@
  * @a: first integer
  * @b: second integer
  * @c: third integer
+ *
+ * Description: check the largest of three integers by using comparism
+ * operator, and return the largest.
  * Return: largest number
  */
 
