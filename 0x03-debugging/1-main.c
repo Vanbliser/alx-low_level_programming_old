@@ -2,9 +2,6 @@
 
 /**
  * main - causes an infinite loop
- *
- * Description: A function that Return 
- * that is causing the output to go into an infinite loop.
  * Return: 'o' on success
  */
 int main(void)
