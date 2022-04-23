@@ -1,20 +1,18 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * main - check the code for
+ * main - check the code
  *
  * Return: Always 0.
  */
 int main(void)
 {
-    int array[7];
+    char s1[98];
+    char *ptr;
 
-    array[0] = 98;
-    array[1] = 402;
-    array[2] = -198;
-    array[3] = 298;
-    array[4] = -1024;
-    array[5] = 2048;
-    print_array(array, 5);
+    ptr = _strcpy(s1, "First, solve the problem. Then, write the code\n");
+    printf("%s", s1);
+    printf("%s", ptr);
     return (0);
 }
