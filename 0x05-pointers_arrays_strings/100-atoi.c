@@ -13,6 +13,7 @@ int _atoi(char *s)
 	int ans = 0;
 	int sign = 1;
 	char c;
+
 	for (i = 0; *(s + i) != '\0'; ++i)
 	{
 		c = *(s + i);
@@ -24,7 +25,7 @@ int _atoi(char *s)
 			break;
 		if (c >= 48 && c <= 57)
 		{
-			while(c >= 48 && c <= 57)
+			while (c >= 48 && c <= 57)
 			{
 				ans = (ans * 10) + char_to_int(c);
 				c = *(s + ++i);
@@ -42,11 +43,12 @@ int _atoi(char *s)
  * integer type number
  * @i: the character type number
  *
- * Return: integer type number 
+ * Return: integer type number
  */
 int char_to_int(char i)
 {
 	int ans;
+	
 	switch (i)
 	{
 	case '0':
