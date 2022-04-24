@@ -10,7 +10,7 @@ int _atoi(char *s)
 {
 	int i;
 	int j = 0;
-	int ans = 0;
+	unsigned int ans = 0;
 	int sign = 1;
 	char c;
 
@@ -48,7 +48,7 @@ int _atoi(char *s)
 int char_to_int(char i)
 {
 	int ans;
-	
+
 	switch (i)
 	{
 	case '0':
