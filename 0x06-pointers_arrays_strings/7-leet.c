@@ -26,7 +26,9 @@ char *leet(char *str)
 		for (j = 0; j <= 4; ++j)
 		{
 			if ((*(str + i) == a[j]) || (*(str + i) == A[j]))
+			{
 				*(str + i) = b[j];
+			}
 		}
 	}
 	return (str);
