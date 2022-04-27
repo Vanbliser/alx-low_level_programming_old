@@ -8,32 +8,26 @@
  * Letters o and O should be replaced by 0
  * Letters t and T should be replaced by 7
  * Letters l and L should be replaced by 1
- * Prototype: char *leet(char *);
  * You can only use one if in your code
  * You can only use two loops in your code
  * You are not allowed to use switch
  * You are not allowed to use any ternary operation
- * Return: the encode string
+ * Return: the encoded string
  */
 char *leet(char *str)
 {
 	int i, j;
-	char c[] = "aAeEoOtTlL";
-	char n[] = "4433007711";
+	char a[6] = "aeotl";
+	char A[6] = "AEOTL";
+	char b[6] = "43071";
 
-	i = 0;
-	while (str[i] != '\0')
+	for (i = 0; *(str + i) != '\0'; ++i)
 	{
-		j = 0;
-		while (c[j] != '\0')
+		for (j = 0; j <= 4; ++j)
 		{
-			if (str[i] == c[j])
-			{
-				str[i] = n[j];
-			}
-			j++;
+			if ((*(str + i) == a[j]) || (*(str + i) == A[j]))
+				*(str + i) = b[j];
 		}
-		i++;
 	}
 	return (str);
 }
