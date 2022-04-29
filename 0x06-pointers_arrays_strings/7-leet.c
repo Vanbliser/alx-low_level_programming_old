@@ -20,9 +20,9 @@ char *leet(char *str)
 	int i;
 	int j;
 	char x;
-	char a[6] = "aeotl";
-	char A[6] = "AEOTL";
-	char b[6] = "43071";
+	char a[6] = {'a', 'e', 'o', 't', 'l', '\0'};
+	char A[6] = {'A', 'E', 'O', 'T', 'L', '\0'};
+	char b[6] = {'4', '3', '0', '7', '1', '\0'};
 
 	for (i = 0; *(str + i) != '\0'; ++i)
 	{
