@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <string.h>
 /**
  * leet - a function that encodes a string into 1337.
  * @str: the string to encode
@@ -17,20 +17,18 @@
  */
 char *leet(char *str)
 {
-	int i, j, y, z;
+	int i, j;
 	char x;
-	char a[6] = {'a', 'e', 'o', 't', 'l', '\0'};
-	char A[6] = {'A', 'E', 'O', 'T', 'L', '\0'};
-	char b[6] = {'4', '3', '0', '7', '1', '\0'};
+	char a[6] = "aeotl";
+	char A[6] = "AEOTL";
+	char b[6] = "43071";
 
 	for (i = 0; *(str + i) != '\0'; ++i)
 	{
 		x = *(str + i);
-		for (j = 0; j <=4; ++j)
+		for (j = 0; j <= 4; ++j)
 		{
-			y = x == *(a + j);
-			z = x == *(A + j);
-			if (y || z)
+			if (x == *(a + j) || x == *(A + j))
 			{
 				*(str + i) = *(b + j);
 				break;
