@@ -31,7 +31,7 @@ char *leet(char *str)
 		{
 			if (x == *(a + j) || x == *(A + j))
 			{
-				*(str + i) = b[j];
+				*(str + i) = *(b + j);
 				break;
 			}
 		}
