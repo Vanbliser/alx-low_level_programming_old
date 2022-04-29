@@ -18,8 +18,8 @@ char *_strchr(char *s, char c)
 		if (c == *(s + i))
 			break;
 	}
-	if (*(s + i) == '\0')
-	return (ptr);
-	else
+	if (c == *(s + i))
 		return (&s[i]);
+	else
+		return (ptr);
 }
