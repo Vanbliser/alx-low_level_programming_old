@@ -17,8 +17,7 @@
  */
 char *leet(char *str)
 {
-	int i;
-	int j;
+	int i, j, y, z;
 	char x;
 	char a[6] = {'a', 'e', 'o', 't', 'l', '\0'};
 	char A[6] = {'A', 'E', 'O', 'T', 'L', '\0'};
@@ -29,7 +28,9 @@ char *leet(char *str)
 		x = *(str + i);
 		for (j = 0; j <=4; ++j)
 		{
-			if (x == *(a + j) || x == *(A + j))
+			y = x == *(a + j);
+			z = x == *(A + j);
+			if (y || z)
 			{
 				*(str + i) = *(b + j);
 				break;
