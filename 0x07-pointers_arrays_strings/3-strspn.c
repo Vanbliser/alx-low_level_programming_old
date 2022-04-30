@@ -64,7 +64,6 @@ unsigned int is_present(char *str, char a)
  * present in the string str
  * @str: the string
  * @st: the substring
- * @n: length of substring
  *
  * Return: 1 if present. 0 otherwise.
  */
