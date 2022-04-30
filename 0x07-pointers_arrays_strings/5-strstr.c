@@ -22,8 +22,8 @@ unsigned int is_equal(char *str, char *strr)
  * _strstr - a function that locates a substring.
  * The function finds the first occurrence of the substring needle
  * in the string haystack. The terminating null bytes (\0) are not compared
- * @haystack:
- * @needle:
+ * @haystack: the string
+ * @needle: the substring
  *
  * Return: Returns a pointer to the beginning of the located substring,
  * or NULL if the substring is not found.
