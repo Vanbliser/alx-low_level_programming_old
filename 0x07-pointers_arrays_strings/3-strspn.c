@@ -7,31 +7,76 @@
  * Return: Returns the number of bytes in the initial segment of s
  * which consist only of bytes from accept
  */
+
 unsigned int _strspn(char *s, char *accept)
 {
-	int i, j;
-	unsigned int count = 0;
+	unsigned int i;
+	unsigned int cnt = 0;
 	unsigned int sum = 0;
-	unsigned int is_inside = 0;
+	char a[80] = "";
 
 	for (i = 0; *(s + i) != '\0'; ++i)
 	{
-		for (j = 0; *(accept + j) != '\0'; ++j)
+		if (is_present(accept, *(s + i)))
 		{
-			if (*(s + i) == *(accept + j))
+			a[cnt] = *(s + i);
+			++cnt;
+		}
+		else
+		{
+			if (cnt >= sum)
 			{
-				++count;
-				is_inside = 1;
-				break;
+				sum = cnt;
+				a[cnt] = '\0';
+				cnt = 0;
+				if (is_complete(a, accept))
+					return (sum);
+			}
+			else
+			{
+				cnt = 0;
 			}
 		}
-		if (is_inside == 0)
-		{
-			if (count >= sum)
-				sum = count;
-			count = 0;
-		}
-		is_inside = 0;
 	}
 	return (sum);
+}
+
+/**
+ * is_present - a function that checks if a character is preset in a string
+ * @str: the string
+ * @a: the character
+ *
+ * Return: return unsigned int 1 if present, else return 0
+ */
+unsigned int is_present(char *str, char a)
+{
+	int i;
+
+	for (i = 0; *(str + i) != '\0'; ++i)
+	{
+		if (a == *(str + i))
+			return (1);
+	}
+	return (0);
+}
+/**
+ * is_complete - a function that checks if all characters in the string st is
+ * present in the string str
+ * @str: the string
+ * @st: the substring
+ * @n: length of substring
+ *
+ * Return: 1 if present. 0 otherwise.
+ */
+unsigned int is_complete(char *st, char *str)
+{
+	int i;
+
+	for (i = 0; *(str + i) != '\0'; ++i)
+		if (!(is_present(st, *(str + i))))
+			return (0);
+	for (i = 0; *(st + i) != '\0'; ++i)
+		if (!(is_present(str, *(st + i))))
+			return (0);
+	return (1);
 }
