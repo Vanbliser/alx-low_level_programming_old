@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _strspn - a function that gets the length of a prefix substring.
  * @s: the string
@@ -29,8 +30,10 @@ unsigned int _strspn(char *s, char *accept)
 				sum = cnt;
 				a[cnt] = '\0';
 				cnt = 0;
-				if (is_complete(a, accept))
+				if (is_complete(accept, a))
+				{
 					return (sum);
+				}
 			}
 			else
 			{
@@ -67,13 +70,10 @@ unsigned int is_present(char *str, char a)
  *
  * Return: 1 if present. 0 otherwise.
  */
-unsigned int is_complete(char *st, char *str)
+unsigned int is_complete(char *str, char *st)
 {
 	int i;
 
-	for (i = 0; *(str + i) != '\0'; ++i)
-		if (!(is_present(st, *(str + i))))
-			return (0);
 	for (i = 0; *(st + i) != '\0'; ++i)
 		if (!(is_present(str, *(st + i))))
 			return (0);
