@@ -11,5 +11,6 @@ unsigned int is_complete(char *str, char *st);
 char *_strpbrk(char *s, char *accept);
 unsigned int is_equal(char *str, char *strr);
 char *_strstr(char *haystack, char *needle);
+void print_chessboard(char (*a)[8]);
 
 #endif /*MAIN*/
