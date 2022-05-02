@@ -11,19 +11,16 @@ char *leet(char *str)
 	char a[6] = "aeotl";
 	char b[6] = "43071";
 
-	i = 0;
-	while (*(str + i) != '\0')
+	for (i = 0; *(str + i) != '\0'; ++i)
 	{
-		j = 0;
-		while (j <= 4)
+		for (j = 0; j <= 4; ++j)
 		{
-			if (*(str + i) == *(a + j) || *(str + i) == *(a + j) - 32)
+			if (*(str + i) == a[j] || *(str + i) == a[j] - 32)
 			{
-				*(str + i) = *(b + j);
+				*(str + i) = b[j];
+				break;
 			}
-			++j;
 		}
-		++i;
 	}
 	return (str);
 }
