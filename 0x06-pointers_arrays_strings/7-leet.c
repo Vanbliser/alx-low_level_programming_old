@@ -19,17 +19,14 @@ char *leet(char *str)
 {
 	int i;
 	char x;
-	/*
 	int j;
 	char a[6] = "aeotl";
 	char A[6] = "AEOTL";
 	char b[6] = "43071";
-	*/
 
 	for (i = 0; *(str + i) != '\0'; ++i)
 	{
 		x = *(str + i);
-		/*
 		for (j = 0; j <= 4; ++j)
 		{
 			if (x == *(a + j) || x == *(A + j))
@@ -38,17 +35,6 @@ char *leet(char *str)
 				break;
 			}
 		}
-		*/
-		if (x == 'a' || x == 'A')
-			*(str + i) = '4';
-		if (x == 'e' || x == 'E')
-			*(str + i) = '3';
-		if (x == 'o' || x == 'O')
-			*(str + i) = '0';
-		if (x == 't' || x == 'T')
-			*(str + i) = '7';
-		if (x == 'l' || x == 'L')
-			*(str + i) = '1';
 	}
 
 	return (str);
