@@ -29,9 +29,9 @@ char *leet(char *str)
 		x = *(str + i);
 		for (j = 0; j <= 4; ++j)
 		{
-			if (x == *(a + j) || x == *(A + j))
+			if (x == a[j] || x == A[j])
 			{
-				*(str + i) = *(b + j);
+				*(str + i) = b[j];
 				break;
 			}
 		}
