@@ -16,31 +16,17 @@
  */
 char *leet(char *str)
 {
-	int i = 0;
-	int j;
-	char a[] = "aeotl";
-	char A[] = "AEOTL";
-	char b[] = "43071";
-	/*
-	for (i = 0; *(str + i) != '\0'; ++i)
-	{
-		x = *(str + i);
-		for (j = 0; j <= 4; ++j)
-		{
-			if (x == a[j] || x == A[j])
-			{
-				*(str + i) = b[j];
-				break;
-			}
-		}
-	}
-	*/
+	int i, j;
+	char a[6] = "aeotl";
+	char b[6] = "43071";
+
+	i = 0;
 	while (*(str + i) != '\0')
 	{
 		j = 0;
 		while (j <= 4)
 		{
-			if (*(str + i) == *(a + j) || *(str + i) == *(A + j))
+			if (*(str + i) == *(a + j) || *(str + i) == *(a + j) - 32)
 			{
 				*(str + i) = *(b + j);
 				break;
@@ -51,3 +37,18 @@ char *leet(char *str)
 	}
 	return (str);
 }
+
+/*
+	char A[6] = "AEOTL";
+	for (i = 0; *(str + i) != '\0'; ++i)
+	{
+		for (j = 0; j <= 4; ++j)
+		{
+			if (*(str + i) == a[j] || *(str + i) == A[j])
+			{
+				*(str + i) = b[j];
+				break;
+			}
+		}
+	}
+	*/
