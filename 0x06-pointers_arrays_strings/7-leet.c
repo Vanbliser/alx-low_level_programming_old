@@ -8,10 +8,8 @@
  * Letters o and O should be replaced by 0
  * Letters t and T should be replaced by 7
  * Letters l and L should be replaced by 1
- * You can only use one if in your code
- * You can only use two loops in your code
- * You are not allowed to use switch
- * You are not allowed to use any ternary operation
+ * You can only use one if statement and two loop statements in your code.
+ * You are not allowed to use switch and ternary operation
  * Return: the encoded string
  */
 char *leet(char *str)
@@ -29,7 +27,6 @@ char *leet(char *str)
 			if (*(str + i) == *(a + j) || *(str + i) == *(a + j) - 32)
 			{
 				*(str + i) = *(b + j);
-				break;
 			}
 			++j;
 		}
@@ -37,18 +34,3 @@ char *leet(char *str)
 	}
 	return (str);
 }
-
-/*
-	char A[6] = "AEOTL";
-	for (i = 0; *(str + i) != '\0'; ++i)
-	{
-		for (j = 0; j <= 4; ++j)
-		{
-			if (*(str + i) == a[j] || *(str + i) == A[j])
-			{
-				*(str + i) = b[j];
-				break;
-			}
-		}
-	}
-	*/
