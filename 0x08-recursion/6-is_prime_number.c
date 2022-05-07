@@ -20,9 +20,7 @@ int is_prime_number(int n)
  */
 int _prime(int n, int k)
 {
-	k = (k < 0) ? k * -1 : k;
-
-	if ((k != n) && (k == 1 || k == 0 || k % n == 0))
+	if ((k != n) && (k <= 1 || k % n == 0))
 	{
 		return (0);
 	}
