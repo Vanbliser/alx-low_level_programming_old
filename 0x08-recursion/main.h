@@ -7,5 +7,6 @@ void _print_rev_recursion(char *s);
 int length_of_string(char *s, int i);
 void print_recursively(char *s, int i);
 int _strlen_recursion(char *s);
+int factorial(int n);
 
 #endif /* MAIN */
