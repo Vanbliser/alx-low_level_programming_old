@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * is_palindrome - a function that returns 1 if a string is a palindrome
  * and 0 if not. An empty string is a palindrome
