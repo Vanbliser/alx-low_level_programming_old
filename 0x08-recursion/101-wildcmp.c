@@ -79,8 +79,9 @@ char *wildcard(char *a, char *b, char *tmp)
 	}
 }
 /**
- * last_wild_card - a function that accepts a character and a string and returns the
- * address of the last sequential occurance of the character in the string.
+ * last_wild_card - a function that accepts a character and a string and
+ * returns the address of the last sequential occurance of the character
+ * in the string.
  * @a: the character
  * @b: the string
  * @tmp: this is a tmp variable
