@@ -79,7 +79,7 @@ char *wildcard(char *a, char *b, char *tmp)
 	}
 }
 /**
- * is_in - a function that accepts a character and a string and returns the
+ * last_wild_card - a function that accepts a character and a string and returns the
  * address of the last sequential occurance of the character in the string.
  * @a: the character
  * @b: the string
