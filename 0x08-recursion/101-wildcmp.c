@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * wildcmp - a function that compares two strings and returns 1 if the strings
  * can be considered identical, otherwise return 0.
@@ -13,6 +12,7 @@ int wildcmp(char *s1, char *s2)
 {
 	char end_of_line = '\0';
 	char *tmp;
+
 	tmp = &end_of_line;
 
 	return (check(s1, s2, tmp));
@@ -21,6 +21,7 @@ int wildcmp(char *s1, char *s2)
  * check - a function that checks if a and b are the same
  * @a: the first character
  * @b: the second character
+ * @tmp: a temporary pointer
  *
  * Return: returns 1 if the same, else returns 0
  */
@@ -29,13 +30,13 @@ int check(char *a, char *b, char *tmp)
 	if (*b == '*')
 	{
 		a = wildcard(a, b, tmp);
-		b = (*(b + 1) == '*')? last_wild_card('*', b, tmp): b;
+		b = (*(b + 1) == '*') ? last_wild_card('*', b, tmp) : b;
 		b++;
 	}
 	if (*a == '*')
 	{
 		b = wildcard(b, a, tmp);
-		a = (*(a + 1) == '*')? last_wild_card('*', a, tmp): a;
+		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
 		a++;
 	}
 	if (*a != *b)
@@ -53,9 +54,9 @@ int check(char *a, char *b, char *tmp)
 }
 /**
  * wildcard - a function that checks for wildcard between two strings
- * @s1: the first string
- * @s2: the second string
- * @a: return valued variable
+ * @a: the first string
+ * @b: the second string
+ * @tmp: return valued variable
  *
  * Return: return the pointer to the character after the wildcard.
  */
@@ -82,6 +83,7 @@ char *wildcard(char *a, char *b, char *tmp)
  * address of the last sequential occurance of the character in the string.
  * @a: the character
  * @b: the string
+ * @tmp: this is a tmp variable
  *
  * Return: returns a pointer to the address of the last occurance.
  */
@@ -95,7 +97,7 @@ char *last_wild_card(char a, char *b, char *tmp)
 		return (tmp);
 	}
 	else
-	{	
+	{
 		++b;
 		return (last_wild_card('*', b, tmp));
 	}
