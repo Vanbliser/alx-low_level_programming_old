@@ -28,7 +28,6 @@ int wildcmp(char *s1, char *s2)
  */
 int check1(char *a, char *b, char *tmp)
 {
-	printf("a=%c b=%c    |    ", *a, *b);
 	if (*b == '*')
 	{
 		a = wildcard(a, b, tmp, 1);
@@ -41,20 +40,16 @@ int check1(char *a, char *b, char *tmp)
 		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
 		a++;
 	}
-	printf("a=%c  b=%c   ", *a, *b);
 	if (*a != *b)
 	{
-		printf("not equal\n");
 		return (0);
 	}
 	else if (*a == '\0' && *b == '\0')
 	{
-		printf("equal\n");
 		return (1);
 	}
 	else
 	{
-		printf("equal\n");
 		return (check1(a + 1, b + 1, tmp));
 	}
 }
@@ -68,7 +63,6 @@ int check1(char *a, char *b, char *tmp)
  */
 int check2(char *a, char *b, char *tmp)
 {
-	printf("a=%c b=%c    |    ", *a, *b);
 	if (*b == '*')
 	{
 		a = wildcard(a, b, tmp, 2);
@@ -81,20 +75,16 @@ int check2(char *a, char *b, char *tmp)
 		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
 		a++;
 	}
-	printf("a=%c  b=%c   ", *a, *b);
 	if (*a != *b)
 	{
-		printf("not equal\n");
 		return (0);
 	}
 	else if (*a == '\0' && *b == '\0')
 	{
-		printf("equal\n");
 		return (1);
 	}
 	else
 	{
-		printf("equal\n");
 		return (check2(a + 1, b + 1, tmp));
 	}
 }
