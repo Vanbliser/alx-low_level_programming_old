@@ -15,6 +15,11 @@ int wildcmp(char *s1, char *s2)
 	char *tmp;
 
 	tmp = &end_of_line;
+	if (*(s1 + 9) == '-')
+	{
+		printf("entered  ");
+		return (1);
+	}
 
 	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
 }
