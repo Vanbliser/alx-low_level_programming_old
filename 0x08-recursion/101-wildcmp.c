@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * wildcmp - a function that compares two strings and returns 1 if the strings
  * can be considered identical, otherwise return 0.
@@ -15,41 +16,86 @@ int wildcmp(char *s1, char *s2)
 
 	tmp = &end_of_line;
 
-	return (check(s1, s2, tmp));
+	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
 }
 /**
- * check - a function that checks if a and b are the same
+ * check1 - a function that checks if a and b are the same
  * @a: the first character
  * @b: the second character
  * @tmp: a temporary pointer
  *
  * Return: returns 1 if the same, else returns 0
  */
-int check(char *a, char *b, char *tmp)
+int check1(char *a, char *b, char *tmp)
 {
+	printf("a=%c b=%c    |    ", *a, *b);
 	if (*b == '*')
 	{
-		a = wildcard(a, b, tmp);
+		a = wildcard(a, b, tmp, 1);
 		b = (*(b + 1) == '*') ? last_wild_card('*', b, tmp) : b;
 		b++;
 	}
 	if (*a == '*')
 	{
-		b = wildcard(b, a, tmp);
+		b = wildcard(b, a, tmp, 1);
 		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
 		a++;
 	}
+	printf("a=%c  b=%c   ", *a, *b);
 	if (*a != *b)
 	{
+		printf("not equal\n");
 		return (0);
 	}
 	else if (*a == '\0' && *b == '\0')
 	{
+		printf("equal\n");
 		return (1);
 	}
 	else
 	{
-		return (check(a + 1, b + 1, tmp));
+		printf("equal\n");
+		return (check1(a + 1, b + 1, tmp));
+	}
+}
+/**
+ * check2 - a function that checks if a and b are the same
+ * @a: the first character
+ * @b: the second character
+ * @tmp: a temporary pointer
+ *
+ * Return: returns 1 if the same, else returns 0
+ */
+int check2(char *a, char *b, char *tmp)
+{
+	printf("a=%c b=%c    |    ", *a, *b);
+	if (*b == '*')
+	{
+		a = wildcard(a, b, tmp, 2);
+		b = (*(b + 1) == '*') ? last_wild_card('*', b, tmp) : b;
+		b++;
+	}
+	if (*a == '*')
+	{
+		b = wildcard(b, a, tmp, 2);
+		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
+		a++;
+	}
+	printf("a=%c  b=%c   ", *a, *b);
+	if (*a != *b)
+	{
+		printf("not equal\n");
+		return (0);
+	}
+	else if (*a == '\0' && *b == '\0')
+	{
+		printf("equal\n");
+		return (1);
+	}
+	else
+	{
+		printf("equal\n");
+		return (check2(a + 1, b + 1, tmp));
 	}
 }
 /**
@@ -57,17 +103,34 @@ int check(char *a, char *b, char *tmp)
  * @a: the first string
  * @b: the second string
  * @tmp: return valued variable
+ * @chk: integer that represents if its calling function is check1 or check2
  *
  * Return: return the pointer to the character after the wildcard.
  */
-char *wildcard(char *a, char *b, char *tmp)
+char *wildcard(char *a, char *b, char *tmp, int chk)
 {
 	if (*a == *(b + 1))
-		tmp = a;
+	{
+		if (chk == 1)
+		{
+			return (a);
+		}
+		else
+		{
+			tmp = a;
+		}
+	}
 
 	if (*a == '\0')
 	{
-		return (tmp);
+		if (chk == 1)
+		{
+			return (a);
+		}
+		else
+		{
+			return (tmp);
+		}
 	}
 	else
 	{
@@ -75,7 +138,7 @@ char *wildcard(char *a, char *b, char *tmp)
 			b++;
 		else
 			a++;
-		return (wildcard(a, b, tmp));
+		return (wildcard(a, b, tmp, chk));
 	}
 }
 /**
