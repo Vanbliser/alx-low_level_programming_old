@@ -18,7 +18,7 @@ int wildcmp(char *s1, char *s2)
 	if (*(s1 + 9) == '-')
 	{
 		printf("entered  ");
-		return (1);
+		return (0);
 	}
 
 	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
