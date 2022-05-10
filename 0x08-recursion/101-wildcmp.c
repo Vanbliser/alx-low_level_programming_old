@@ -16,7 +16,7 @@ int wildcmp(char *s1, char *s2)
 
 	tmp = &end_of_line;
 
-	return (check1(s1, s2, tmp));
+	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
 }
 /**
  * check1 - a function that checks if a and b are the same
