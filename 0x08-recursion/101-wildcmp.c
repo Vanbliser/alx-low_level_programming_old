@@ -15,11 +15,11 @@ int wildcmp(char *s1, char *s2)
 	char *tmp;
 
 	tmp = &end_of_line;
-		
+
 	return (check(s1, s2, tmp));
 }
 /**
- * check1 - a function that checks if a and b are the same
+ * check - a function that checks if a and b are the same
  * @a: the first character
  * @b: the second character
  * @tmp: a temporary pointer
@@ -57,8 +57,7 @@ int check(char *a, char *b, char *tmp)
  * wildcard - a function that checks for wildcard between two strings
  * @a: the first string
  * @b: the second string
- * @tmp: return valued variable
- * @chk: integer that represents if its calling function is check1 or check2
+ * @tmp: a temporary pointer
  *
  * Return: return the pointer to the character after the wildcard.
  */
