@@ -15,14 +15,8 @@ int wildcmp(char *s1, char *s2)
 	char *tmp;
 
 	tmp = &end_of_line;
-	if (*(s1 + 9) == '-')
-	{
-		return (1);
-	}
-	else
-	{
-		return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
-	}
+		
+	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
 }
 /**
  * check1 - a function that checks if a and b are the same
