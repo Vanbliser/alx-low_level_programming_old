@@ -14,10 +14,9 @@ int double_up(int n, int k);
 int is_prime_number(int n);
 int _prime(int n, int k);
 int is_palindrome(char *s);
-int check1(char *a, char *b, char *tmp);
-int check2(char *a, char *b, char *tmp);
+int check(char *a, char *b, char *tmp);
 int wildcmp(char *s1, char *s2);
-char *wildcard(char *a, char *b, char *tmp, int chk);
+char *wildcard(char *a, char *b, char *tmp);
 char *last_wild_card(char a, char* b, char *tmp);
 
 #endif /* MAIN */

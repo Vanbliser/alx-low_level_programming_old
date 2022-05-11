@@ -16,7 +16,7 @@ int wildcmp(char *s1, char *s2)
 
 	tmp = &end_of_line;
 		
-	return (check1(s1, s2, tmp) || check2(s1, s2, tmp));
+	return (check(s1, s2, tmp));
 }
 /**
  * check1 - a function that checks if a and b are the same
@@ -26,17 +26,17 @@ int wildcmp(char *s1, char *s2)
  *
  * Return: returns 1 if the same, else returns 0
  */
-int check1(char *a, char *b, char *tmp)
+int check(char *a, char *b, char *tmp)
 {
 	if (*b == '*')
 	{
-		a = wildcard(a, b, tmp, 1);
+		a = wildcard(a, b, tmp);
 		b = (*(b + 1) == '*') ? last_wild_card('*', b, tmp) : b;
 		b++;
 	}
 	if (*a == '*')
 	{
-		b = wildcard(b, a, tmp, 1);
+		b = wildcard(b, a, tmp);
 		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
 		a++;
 	}
@@ -50,42 +50,7 @@ int check1(char *a, char *b, char *tmp)
 	}
 	else
 	{
-		return (check1(a + 1, b + 1, tmp));
-	}
-}
-/**
- * check2 - a function that checks if a and b are the same
- * @a: the first character
- * @b: the second character
- * @tmp: a temporary pointer
- *
- * Return: returns 1 if the same, else returns 0
- */
-int check2(char *a, char *b, char *tmp)
-{
-	if (*b == '*')
-	{
-		a = wildcard(a, b, tmp, 2);
-		b = (*(b + 1) == '*') ? last_wild_card('*', b, tmp) : b;
-		b++;
-	}
-	if (*a == '*')
-	{
-		b = wildcard(b, a, tmp, 2);
-		a = (*(a + 1) == '*') ? last_wild_card('*', a, tmp) : a;
-		a++;
-	}
-	if (*a != *b)
-	{
-		return (0);
-	}
-	else if (*a == '\0' && *b == '\0')
-	{
-		return (1);
-	}
-	else
-	{
-		return (check2(a + 1, b + 1, tmp));
+		return (check(a + 1, b + 1, tmp));
 	}
 }
 /**
@@ -97,30 +62,16 @@ int check2(char *a, char *b, char *tmp)
  *
  * Return: return the pointer to the character after the wildcard.
  */
-char *wildcard(char *a, char *b, char *tmp, int chk)
+char *wildcard(char *a, char *b, char *tmp)
 {
-	if (*a == *(b + 1))
+	if (*a == *(b + 1) && check(a, b + 1, tmp))
 	{
-		if (chk == 1)
-		{
-			return (a);
-		}
-		else
-		{
-			tmp = a;
-		}
+		return (a);
 	}
 
 	if (*a == '\0')
 	{
-		if (chk == 1)
-		{
-			return (a);
-		}
-		else
-		{
-			return (tmp);
-		}
+		return (a);
 	}
 	else
 	{
@@ -128,7 +79,7 @@ char *wildcard(char *a, char *b, char *tmp, int chk)
 			b++;
 		else
 			a++;
-		return (wildcard(a, b, tmp, chk));
+		return (wildcard(a, b, tmp));
 	}
 }
 /**
