@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
 	int result = num;
 	int i;
 
-	if (argc != 2)
+	if (argc != 2 || num == 0)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else if (num <= 0)
+	else if (num < 0)
 	{
 		printf("%d\n", 0);
 		return (0);
