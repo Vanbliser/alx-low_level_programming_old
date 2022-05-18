@@ -16,12 +16,12 @@ int main(int argc, char *argv[])
 {
 	int num, result, i;
 
-	if (argc == 1 || atoi(argv[1]) == 0)
+	if (argc == 1)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	else if (atoi(argv[1]) < 0)
+	else if (atoi(argv[1]) <= 0)
 	{
 		printf("%d\n", 0);
 		return (0);
