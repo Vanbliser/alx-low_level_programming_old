@@ -17,12 +17,16 @@ char *str_concat(char *s1, char *s2)
 	int i, j, k, l, size;
 	int m = 0;
 	char *str;
+	char *null = "";
 
 	if (s1 == NULL)
-		*(s1 + 0) = '\0';
+	{
+		s1 = null;
+	}
 	if (s2 == NULL)
-		*(s2 + 0) = '\0';
-
+	{
+		s2 = null;
+	}
 	for (i = 0; *(s1 + i) != '\0'; ++i)
 	;
 	for (j = 0; *(s2 + j) != '\0'; ++j)
