@@ -19,6 +19,6 @@ char *create_array(unsigned int size, char c)
 	do {
 		*(array + --size) = c;
 	} while (size);
-	
+
 	return (array);
 }
