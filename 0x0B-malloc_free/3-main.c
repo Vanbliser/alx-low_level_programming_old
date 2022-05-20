@@ -39,7 +39,7 @@ int main(void)
 {
     int **grid;
 
-    grid = alloc_grid(6, INT_MAX);
+    grid = alloc_grid(6, 4);
     if (grid == NULL)
     {
         return (1);
