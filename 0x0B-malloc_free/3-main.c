@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * print_grid - prints a grid of integers
@@ -38,7 +39,7 @@ int main(void)
 {
     int **grid;
 
-    grid = alloc_grid(6, 4);
+    grid = alloc_grid(6, INT_MAX);
     if (grid == NULL)
     {
         return (1);
