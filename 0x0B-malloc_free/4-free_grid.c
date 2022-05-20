@@ -8,6 +8,10 @@
  */
 void free_grid(int **grid, int __attribute__ ((unused)) height)
 {
+	if (grid == NULL)
+	{
+		return;
+	}
 	free(*(grid + 0));
 	free(grid);
 }
