@@ -5,8 +5,8 @@
  * Returns NULL if ac == 0 or av == NULL
  * Returns a pointer to a new string, or NULL if it fails
  * Each argument should be followed by a \n in the new string
- * @ac: 
- * @av:
+ * @ac: the arument count
+ * @av: the array of arguments
  *
  * Return: a pointer to the concatenated string
  */
@@ -19,7 +19,7 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-	for(i = 0; i < ac; ++i)
+	for (i = 0; i < ac; ++i)
 	{
 		for (j = 0; *(*(av + i) + j) != '\0'; ++j)
 		;
