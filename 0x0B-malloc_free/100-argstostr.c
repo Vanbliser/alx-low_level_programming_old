@@ -25,7 +25,7 @@ char *argstostr(int ac, char **av)
 		;
 		k += j;
 	}
-	k = k + i - 1;
+	k = k + i - 1 + 2;
 	ptr = malloc(sizeof(char) * k);
 	for (i = 0; i < ac; ++i)
 	{
