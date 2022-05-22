@@ -11,5 +11,6 @@ char **strtow(char *str);
 int _isspace(char c);
 int no_of_space(char *str);
 int no_of_words(char *str);
+int is_empty(char *str);
 
 #endif /* MAIN */

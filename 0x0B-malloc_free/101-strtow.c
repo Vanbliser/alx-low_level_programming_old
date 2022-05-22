@@ -17,7 +17,7 @@ char **strtow(char *str)
 	char **arr;
 	int size, i, j = 0, k = 0, l;
 
-	if (str == NULL || *(str + 0) == '\0' || _isspace(*(str + 0)))
+	if (str == NULL || *(str + 0) == '\0' || is_empty(str))
 		return (NULL);
 	size = no_of_words(str);
 	arr = malloc(sizeof(char *) * size + 1);
@@ -101,4 +101,21 @@ int no_of_space(char *str)
 	for (i = 0; _isspace(*(str + i)); ++i)
 	;
 	return (--i);
+}
+/**
+ * is_empty - a function that checks if a string is empty
+ * @str: the string
+ *
+ * Return: return 1 if empty, else return 0
+ */
+int is_empty(char *str)
+{
+	int i;
+
+	for (i = 0; *(str + i) != '\0'; ++i)
+	{
+		if (!(_isspace(*(str + i))))
+			return (0);
+	}
+	return (1);
 }
