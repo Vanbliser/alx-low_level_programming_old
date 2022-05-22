@@ -17,7 +17,7 @@ char **strtow(char *str)
 	char **arr;
 	int size, i, j = 0, k = 0, l;
 
-	if (str == NULL || *(str + 0) == '\0')
+	if (str == NULL || *(str + 0) == '\0' || _isspace(*(str + 0)))
 		return (NULL);
 	size = no_of_words(str);
 	arr = malloc(sizeof(char *) * size + 1);
