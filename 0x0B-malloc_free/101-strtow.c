@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
  * strtow - a function that splits a string into words.
  * The function returns a pointer to an array of strings (words)
@@ -13,7 +12,6 @@
  *
  * Return: a pointer to an array of the splited words
  */
-
 char **strtow(char *str)
 {
 	char **arr;
@@ -50,6 +48,7 @@ char **strtow(char *str)
 	}
 	return (arr);
 }
+
 /**
  * no_of_words - a function that returns the number of words in a string
  * @str: the string
@@ -74,6 +73,7 @@ int no_of_words(char *str)
 	}
 	return (j);
 }
+
 /**
  * _isspace - a function that checks if a character is a space
  * @c: the character
@@ -87,6 +87,7 @@ int _isspace(char c)
 	else
 		return (0);
 }
+
 /**
  * no_of_space - a function that counts the number of adjacent empty space
  * @str:
