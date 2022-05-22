@@ -20,7 +20,7 @@ char **strtow(char *str)
 	if (str == NULL || *(str + 0) == '\0' || is_empty(str))
 		return (NULL);
 	size = no_of_words(str);
-	arr = malloc(sizeof(char *) * size + 1);
+	arr = malloc(sizeof(char *) * (size + 1));
 	*(arr + size) = NULL;
 
 	for (i = 0; *(str + i) != '\0'; ++i)
