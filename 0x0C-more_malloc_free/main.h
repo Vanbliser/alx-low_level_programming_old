@@ -8,5 +8,12 @@ unsigned int _strlen(char *str);
 void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void error(void);
+unsigned int _is_not_digit(char *str);
+unsigned int length(char *str);
+unsigned int _atoi(char ch);
+void multiply(unsigned int *ptr, unsigned  int l1, unsigned  int l2, 
+char *int1, char *int2, unsigned int *x, unsigned int *y,
+unsigned int *k, unsigned int *z, unsigned int *p);
 
 #endif /* end MAIN */
