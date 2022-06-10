@@ -18,7 +18,7 @@
  */
 int main(int argc, char **argv)
 {
-	unsigned int i, j, k, x, y, z, l1, l2, **pt1;
+	unsigned int i, j, k, x, y, z, l1, l2, **pt1, **pt2;
 	char *int1, *int2;
 
 	if (argc > 3 || _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
@@ -33,28 +33,60 @@ int main(int argc, char **argv)
 	y = l1 - 1;
 	k = l1 + l2;
 	z = k;
-
 	pt1 = malloc(sizeof(char *) * (l2 + 1));
+	pt2 = malloc(sizeof(char *) * (l1 + 1));
+	if (pt1 == NULL || pt2 == NULL)
+		_free2(pt1, pt2);
+	free(pt2);
 	for (i = 0; i <= l2; ++i)
+	{
 		*(pt1 + i) = calloc(l1 + l2 + 1, sizeof(unsigned int));
-
+		if (*(pt1 + i) == NULL)
+			_free(pt1, i);
+	}
 	for (i = 0; i < l2; ++i)
 	{
 		multiply(*(pt1 + i), l1, int1, int2, &x, &y, z);
 		z--;
 	}
-
 	addition(pt1, k, l2);
-
 	for (j = 0; j <= k; ++j)
 		if (*(*(pt1 + l2) + j) != 0)
 			for (; j <= k; ++j)
 				_putchar(_itoa(*(*(pt1 + l2) + j)));
-
 	_putchar('\n');
+	_free(pt1, l2);
 	return (0);
 }
+/**
+ * _free - a function that frees all allocated memory stored in an array
+ * and also frees the array memory
+ * @pt1: the array
+ * @i: index value of the elements of the array
+ */
+void _free(unsigned int **pt1, unsigned int i)
+{
+	int j;
 
+	j = (int)(i);
+	while (j >= 0)
+	{
+		free(*(pt1 + j--));
+	}
+	free(pt1);
+	exit(0);
+}
+/**
+ * _free2 - a function that frees two allocated memory
+ * @pt1: the first allocated memory
+ * @pt2: the second allocated memory
+ */
+void _free2(unsigned int **pt1, unsigned int **pt2)
+{
+	free(pt1);
+	free(pt2);
+	exit(0);
+}
 /**
  * addition - a function that accepts a an array of pointers pointing to an
  * array of unsigned integers

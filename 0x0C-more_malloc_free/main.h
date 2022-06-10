@@ -17,5 +17,7 @@ char *int1, char *int2, unsigned int *x, unsigned int *y,
 unsigned int z);
 void addition(unsigned int **pt1, unsigned int k, unsigned int l2);
 char _itoa(unsigned int ch);
+void _free(unsigned int **pt1, unsigned int i);
+void _free2(unsigned int **pt1, unsigned int **pt2);
 
 #endif /* end MAIN */
