@@ -18,7 +18,7 @@
  */
 int main(int argc, char **argv)
 {
-	unsigned int i, j, k, x, y, z, l1, l2, **pt1, **pt2;
+	unsigned int i, j, k, x, y, z, l1, l2, **pt1;
 	char *int1, *int2;
 
 	if (argc > 3 || argc < 3 || _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
