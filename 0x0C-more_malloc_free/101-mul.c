@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	unsigned int i, j, k, x, y, z, l1, l2, **pt1, **pt2;
 	char *int1, *int2;
 
-	if (argc > 3 || argc < 3|| _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
+	if (argc > 3 || argc < 3 || _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
 		error();
 	l1 = length(argv[1]);
 	l2 = length(argv[2]);
@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 				_putchar(_itoa(*(*(pt1 + l2) + j)));
 	_putchar('\n');
 	_free(pt1, l2);
-	exit (0);
+	exit(0);
 }
 /**
  * _free - a function that frees all allocated memory stored in an array
