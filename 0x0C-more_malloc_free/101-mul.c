@@ -18,8 +18,8 @@
  */
 int main(int argc, char **argv)
 {
-	unsigned int i, p, k, x, y, z, mul, val, rem = 0, l1, l2, **pt1;
-	char *int1, *int2;
+	unsigned int i, j, p, k, x, y, z, mul, val, rem = 0, l1, l2, **pt1;
+	char *int1, *int2, ans = 0;
 
 	if (argc > 3 || _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
 		error();
@@ -29,8 +29,8 @@ int main(int argc, char **argv)
 	int2 = (l1 >= l2) ? argv[2] : argv[1];
 	l1 = length(int1);
 	l2 = length(int2);
-	x = l1 - 1;
-	y = l2 - 1;
+	x = l2 - 1;
+	y = l1 - 1;
 	k = l1 + l2;
 	z = k;
 	p = 0;
@@ -44,39 +44,46 @@ int main(int argc, char **argv)
 	for (i = 0; i < l2; ++i)
 	{
 		printf("\nstart x=%u\n", x);
-		multiply(*(pt1 + i), l1, l2, int1, int2, &x, &y, &k, &z, &p);
-		
-		/*
-		for (i = 1; i <= l1; ++i)
+		multiply(*(pt1 + i), l1, l2, int1, int2, &x, &y, z, &p);
+		z--;
+	}
+
+	addition(pt1, k, l2);
+
+	for (i = 0; i <= l2; ++i)
+	{
+		for (j = 0; j <= k; ++j)
 		{
-			printf("entered: x=%u, y=%u\n", x, y);
-			printf("int1=%c int2=%c\n", int1[y], int2[x]);
-			mul = (_atoi(int2[x]) * _atoi(int1[y])) + rem;
-			rem = mul / 10;
-			val = mul % 10;
-			printf("mul=%u, rem=%u, val=%u\n", mul, rem, val);
-			*(*(pt1 + p) + z--) = val;
-			printf("%u\n", *(*(pt1 + p) + (z + 1)));
-			--y;
+			printf("%u", *(*(pt1 + i) + j));
 		}
-		*(*(pt1 + p) + z) = rem;
-		printf("%u\n", *(*(pt1 + p) + z));
-		rem = 0;
-		z = k--;
-		++p;
-		--x;
-		y = l2 - 1;
 		printf("\n");
-		*/
 	}
 	
 	printf("\n");
 	return (0);
 }
 
+void addition(unsigned int **pt1, unsigned int k, unsigned int l2)
+{
+	unsigned int i, j, l = k, ans, add = 0, rem = 0;
+
+	for (i = 0; i <= k; ++i)
+	{
+		for (j = 0; j < l2; ++j)
+		{
+			add += *(*(pt1 + j) + l);
+		}
+		rem = add / 10;
+		ans = add % 10;
+		*(*(pt1 + j) + l) = ans;
+		add = rem;
+		l--;
+	}
+}
+
 void multiply(unsigned int *ptr, unsigned  int l1, unsigned  int l2, 
 char *int1, char *int2, unsigned int *x, unsigned int *y,
-unsigned int *k, unsigned int *z, unsigned int *p)
+unsigned int z, unsigned int *p)
 {
 	unsigned int i, mul, val, rem = 0;
 
@@ -88,13 +95,12 @@ unsigned int *k, unsigned int *z, unsigned int *p)
 		rem = mul / 10;
 		val = mul % 10;
 		printf("mul=%u, rem=%u, val=%u\n", mul, rem, val);
-		*(ptr + (*z)--) = val;
-		printf("%u\n", *(ptr + (*z + 1)));
+		*(ptr + z--) = val;
+		printf("%u\n", *(ptr + (z + 1)));
 		--*y;
 	}
-	*(ptr + *z) = rem;
-	printf("%u\n", *(ptr + *z));
-	*z = *k;
+	*(ptr + z) = rem;
+	printf("%u\n", *(ptr + z));
 	++p;
 	--*x;
 	*y = l2 - 1;

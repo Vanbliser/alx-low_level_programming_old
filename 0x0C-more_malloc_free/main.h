@@ -14,6 +14,7 @@ unsigned int length(char *str);
 unsigned int _atoi(char ch);
 void multiply(unsigned int *ptr, unsigned  int l1, unsigned  int l2, 
 char *int1, char *int2, unsigned int *x, unsigned int *y,
-unsigned int *k, unsigned int *z, unsigned int *p);
+unsigned int z, unsigned int *p);
+void addition(unsigned int **pt1, unsigned int k, unsigned int l2);
 
 #endif /* end MAIN */
