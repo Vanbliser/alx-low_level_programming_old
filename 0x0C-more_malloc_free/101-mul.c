@@ -23,6 +23,7 @@ int main(int argc, char **argv)
 
 	if (argc > 3 || argc < 3 || _is_not_digit(argv[1]) || _is_not_digit(argv[2]))
 		error();
+
 	l1 = length(argv[1]);
 	l2 = length(argv[2]);
 	int1 = (l1 >= l2) ? argv[1] : argv[2];
@@ -33,27 +34,25 @@ int main(int argc, char **argv)
 	y = l1 - 1;
 	k = l1 + l2;
 	z = k;
+
 	pt1 = malloc(sizeof(char *) * (l2 + 1));
-	pt2 = malloc(sizeof(char *) * (l1 + 1));
-	if (pt1 == NULL || pt2 == NULL)
-		_free2(pt1, pt2);
-	free(pt2);
+
 	for (i = 0; i <= l2; ++i)
-	{
 		*(pt1 + i) = calloc(l1 + l2 + 1, sizeof(unsigned int));
-		if (*(pt1 + i) == NULL)
-			_free(pt1, i);
-	}
+
 	for (i = 0; i < l2; ++i)
 	{
 		multiply(*(pt1 + i), l1, int1, int2, &x, &y, z);
 		z--;
 	}
+
 	addition(pt1, k, l2);
+
 	for (j = 0; j <= k; ++j)
 		if (*(*(pt1 + l2) + j) != 0 || j == k)
 			for (; j <= k; ++j)
 				_putchar(_itoa(*(*(pt1 + l2) + j)));
+
 	_putchar('\n');
 	_free(pt1, l2);
 	exit(0);
@@ -74,17 +73,6 @@ void _free(unsigned int **pt1, unsigned int i)
 		free(*(pt1 + j--));
 	}
 	free(pt1);
-	exit(0);
-}
-/**
- * _free2 - a function that frees two allocated memory
- * @pt1: the first allocated memory
- * @pt2: the second allocated memory
- */
-void _free2(unsigned int **pt1, unsigned int **pt2)
-{
-	free(pt1);
-	free(pt2);
 	exit(0);
 }
 /**
