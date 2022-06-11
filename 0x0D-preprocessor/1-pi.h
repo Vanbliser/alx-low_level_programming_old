@@ -1,6 +1,6 @@
-#ifndef PI
-#define PI
+#ifndef MAIN
+#define MAIN
 
 #define PI 3.14159265359
 
-#endif /* PI */
+#endif /* MAIN */
