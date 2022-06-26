@@ -11,17 +11,16 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	unsigned int name_length, ownner_length, i;
 	dog_t *dog;
+	int name_length, ownner_length, i;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
-	for (name_length = 0; name[name_length]; name_length++)
-		;
-	name_length++;
+
+	name_length = length_of_string(name);
 	dog->name = malloc(name_length * sizeof(char));
 	if (dog->name == NULL)
 	{
@@ -31,9 +30,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (i = 0; i < name_length; i++)
 		dog->name[i] = name[i];
 	dog->age = age;
-	for (ownner_length = 0; owner[ownner_length]; ownner_length++)
-		;
-	ownner_length++;
+
+	ownner_length = length_of_string(owner);
 	dog->owner = malloc(ownner_length * sizeof(char));
 	if (dog->owner == NULL)
 	{
@@ -52,12 +50,13 @@ dog_t *new_dog(char *name, float age, char *owner)
  *
  * Return: return the length
  */
-unsigned int length_of_string(char *string)
+int length_of_string(char *string)
 {
-	int length = 0;
+	int length;
 
-	while (*string++)
-		length++;
+	for (length = 0; string[length]; length++)
+	;
+	length++;
 
 	return (length);
 }
