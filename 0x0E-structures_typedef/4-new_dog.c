@@ -1,7 +1,5 @@
 #include "dog.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+
 /**
  * new_dog - a function that creates a new dog.
  * You have to store a copy of name and owner
@@ -27,9 +25,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_owner = malloc(sizeof(char) * ownner_length);
 	if (dog_name == NULL || dog_owner == NULL || my_dog == NULL)
 	{
-		free(my_dog);
-		free(dog_name);
-		free(dog_owner);
+		_free(my_dog, 2, dog_name, dog_owner);
 		return (NULL);
 	}
 
@@ -56,4 +52,21 @@ int length_of_string(char *string)
 		length++;
 
 	return (length);
+}
+/**
+ * _free - A function that frees memory allocation in the new_dog function
+ * @my_dog: Pointer to a structure that should be freed
+ * @name: pointer to a character that should be freed
+ * @owner: pointer to a character that should be freed
+ */
+void _free(dog_t *my_dog, int count, ...)
+{
+	va_list arg;
+	int i;
+
+	free(my_dog);
+	for (i = 0; i < count; ++i)
+		free(va_arg(arg, char *));
+
+	va_end(arg);
 }
