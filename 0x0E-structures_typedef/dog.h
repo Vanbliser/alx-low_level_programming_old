@@ -20,7 +20,6 @@ typedef struct dog
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 dog_t *new_dog(char *name, float age, char *owner);
-int length_of_string(char *string);
-char *arraycpy(char *ptr, char arr[], int size);
+unsigned int length_of_string(char *string);
 
 #endif /* DOG */

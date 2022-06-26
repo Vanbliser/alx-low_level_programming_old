@@ -1,46 +1,63 @@
 #include "dog.h"
-
 /**
- * new_dog - creates a new dog
- * @name: name of dog
- * @age: age of dog
- * @owner: owner of dog
+ * new_dog - a function that creates a new dog.
+ * You have to store a copy of name and owner
+ * Return NULL if the function fails
+ * @name: the name of the dog
+ * @age: the age of the dog
+ * @owner: the name of its owner
  *
- * Return: pointer to new dog
+ * Return: return a pointer to the structure dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	unsigned int nl, ol, i;
+	unsigned int name_length, ownner_length, i;
 	dog_t *dog;
 
 	if (name == NULL || owner == NULL)
 		return (NULL);
+
 	dog = malloc(sizeof(dog_t));
 	if (dog == NULL)
 		return (NULL);
-	for (nl = 0; name[nl]; nl++)
-		;
-	nl++;
-	dog->name = malloc(nl * sizeof(char));
+
+	name_length = length_of_string(name);
+	dog->name = malloc(name_length * sizeof(char));
 	if (dog->name == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-	for (i = 0; i < nl; i++)
+	for (i = 0; i < name_length; i++)
 		dog->name[i] = name[i];
+
 	dog->age = age;
-	for (ol = 0; owner[ol]; ol++)
-		;
-	ol++;
-	dog->owner = malloc(ol * sizeof(char));
+
+	ownner_length = length_of_string(owner);
+	dog->owner = malloc(ownner_length * sizeof(char));
 	if (dog->owner == NULL)
 	{
 		free(dog->name);
 		free(dog);
 		return (NULL);
 	}
-	for (i = 0; i < ol; i++)
+	for (i = 0; i < ownner_length; i++)
 		dog->owner[i] = owner[i];
 	return (dog);
+}
+
+/**
+ * length_of_string - a function that returns the length of a string
+ * @string: the string
+ *
+ * Return: return the length
+ */
+unsigned int length_of_string(char *string)
+{
+	int length = 0;
+
+	while (*string++)
+		length++;
+
+	return (length);
 }
