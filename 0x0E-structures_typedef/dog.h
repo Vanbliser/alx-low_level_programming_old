@@ -1,9 +1,7 @@
 #ifndef DOG
 #define DOG
-#include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 /**
  * struct dog - a dog structure
  * @name: The name of the dog
