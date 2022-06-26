@@ -1,4 +1,4 @@
-#ifndef DEFINED
+#ifndef DEFIND
 #define DEFIND
 
 #include <stdarg.h>
