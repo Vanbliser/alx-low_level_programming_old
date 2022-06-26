@@ -27,7 +27,12 @@ void print_all(const char * const format, ...)
 	}
 	printf("\n"), va_end(args);
 }
-
+/**
+ * switching - a helper function to switch amoung the list of types
+ * @format: a list of types of arguments passed to the function.
+ * @c: A flag
+ * @args: A va_list variable
+ */
 void switching(char format, unsigned int *c, va_list args)
 {
 	char *str;
