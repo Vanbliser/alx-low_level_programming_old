@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
  * print_list - a function that prints all the elements of a list_t list.
- * Return: the number of nodes. If str is NULL, print [0] (nil).
+ * Return the number of nodes. If str is NULL, print [0] (nil).
  * You are allowed to use printf
  * @h: pointer to the list_t list
  *
